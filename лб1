@@ -42,8 +42,7 @@ int main() {
     std::printf("\n");
 
     //ЗАДАНИЕ 4
-
-double a, b;
+    double a, b;
     std::printf("a, b = ");
     std::scanf("%lf %lf", &a, &b);
 
