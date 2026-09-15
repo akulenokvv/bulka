@@ -42,14 +42,16 @@ int main() {
     std::printf("\n");
 
     //ЗАДАНИЕ 4
-    double a, b;
-    cout << "a, b = ";
-    cin >> a >> b;
+
+double a, b;
+    std::printf("a, b = ");
+    std::scanf("%lf %lf", &a, &b);
 
     double y = sqrt((a * sin(b) * sin(b) + pow(cos(b), 3) + cbrt(b * b)) /
-        (4 * a * tan(b) * (1 - exp(sqrt(a)))));
-    cout << "y = " << y << endl;
-    cout << endl;
+                    (4 * a * tan(b) * (1 - exp(sqrt(a)))));
+
+    std::printf("y = %f\n", y);
+    std::printf("\n");
 
     //ЗАДАНИЕ 5
     int h, m;
