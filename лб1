@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -11,8 +12,8 @@ int main() {
 
     cout << "C = " << 2 * M_PI * r << endl;
     cout << "S = " << M_PI * pow(r, 2) << endl;
-    cout << "Ss = " << 4 * S << endl;
-    cout << "V = " << (4.0/3.0) * M_PI * pow(r, 3) << endl;
+    cout << "Ss = " << 4 * M_PI * pow(r, 2) << endl;
+    cout << "V = " << (4.0 / 3.0) * M_PI * pow(r, 3) << endl;
     cout << endl;
 
     //ЗАДАНИЕ 2
