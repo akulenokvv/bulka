@@ -32,11 +32,14 @@ int main() {
 
     //ЗАДАНИЕ 3
     unsigned long long grains = 0;
-    for (int i = 0; i < 64; i++) grains += (unsigned long long)pow(2, i);
+    for (int i = 0; i < 64; i++)
+        grains += (unsigned long long)pow(2, i);
+
     double years = grains / (70.0 * 1e7);
-    cout << "N = " << grains << endl;
-    cout << "t = " << years << " (" << ceil(years) << ")" << endl;
-    cout << endl;
+
+    std::printf("N = %llu\n", grains);
+    std::printf("t = %f (%f)\n", years, std::ceil(years));
+    std::printf("\n");
 
     //ЗАДАНИЕ 4
     double a, b;
