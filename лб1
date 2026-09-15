@@ -19,14 +19,15 @@ int main() {
     std::printf("S = %f\n", S);
     std::printf("Ss = %f\n", Ss);
     std::printf("Ss = %f\n", V);
-    std::printf("\n" )
+    std::printf("\n" );
 
     //ЗАДАНИЕ 2
     int K;
-    cout << "K = ";
-    cin >> K;
-    cout << K << "s = " << K / 3600 << "h " << (K % 3600) / 60 << "m " << K % 60 << "s" << endl;
-    cout << endl;
+    std::printf("K = ");
+    std::scanf("%d", &K);
+    
+    std::printf("%ds = %dh %dm %ds\n", K, K / 3600, (K % 3600) / 60, K % 60);
+    std::printf("\n");
 
     //ЗАДАНИЕ 3
     unsigned long long grains = 0;
