@@ -7,14 +7,19 @@ using namespace std;
 int main() {
     //ЗАДАНИЕ 1
     double r;
-    cout << "r = ";
-    cin >> r;
+cout << "r = ";
+cin >> r;
 
-    cout << "C = " << 2 * M_PI * r << endl;
-    cout << "S = " << M_PI * pow(r, 2) << endl;
-    cout << "Ss = " << 4 * M_PI * pow(r, 2) << endl;
-    cout << "V = " << (4.0 / 3.0) * M_PI * pow(r, 3) << endl;
-    cout << endl;
+double C = 2 * M_PI * r;
+double S = M_PI * pow(r, 2);
+double Ss = 4 * S;
+double V = (4.0 / 3.0) * S * r;
+
+cout << "C = " << C << endl;
+cout << "S = " << S << endl;
+cout << "Ss = " << Ss << endl;
+cout << "V = " << V << endl;
+cout << endl;
 
     //ЗАДАНИЕ 2
     int K;
