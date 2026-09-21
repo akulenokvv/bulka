@@ -51,12 +51,10 @@ int main() {
 
     //ЗАДАНИЕ 5
     int h, m;
-    cout << "h, m = ";
-    cin >> h >> m;
-
-    double angle = abs((h % 12) * 30 + m * 0.5 - m * 6);
-    angle = min(angle, 360 - angle);
-    cout << "ang = " << angle << "°" << endl;
+    scanf_s("%d:%d", &h, &m);
+    double a = fabs((h * 30.0 + m * 0.5) - (m * 6.0));
+    if (a > 180.0) a = 360.0 - a;
+    printf("%.1f\n", a);
 
     return 0;
 }
