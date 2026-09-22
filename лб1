@@ -56,5 +56,22 @@ int main() {
     if (a > 180.0) a = 360.0 - a;
     printf("%.1f\n", a);
 
+//ЗАДАНИЕ 6
+    int rub, kop;
+    scanf_s("%d %d", &rub, &kop);
+
+    int cur = rub * 100 + kop;
+    int best = cur, best_pass = 0;
+
+    for (int pass = 1; pass <= 1000 && cur >= 29; pass++) {
+        cur = ((cur - 29) % 100) * 100 + (cur - 29) / 100;
+        best_pass = (cur > best) ? pass : best_pass;
+        best      = (cur > best) ? cur  : best;
+    }
+
+    printf("%d %d %d\n", best_pass, best / 100, best % 100);
+    
+
+
     return 0;
 }
