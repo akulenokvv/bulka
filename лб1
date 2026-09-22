@@ -57,20 +57,30 @@ int main() {
     printf("%.1f\n", (a > 180.0) ? 360.0 - a : a);
 
     //ЗАДАНИЕ 6
-    int rub, kop;
-    scanf_s("%d %d", &rub, &kop);
+    #include <stdio.h>
 
-    int cur = rub * 100 + kop;
-    int best = cur, best_pass = 0;
+int main() {
+    long long rub, kop;
+    scanf("%lld %lld", &rub, &kop);
 
-    for (int pass = 1; pass <= 1000 && cur >= 29; pass++) {
-        cur = ((cur - 29) % 100) * 100 + (cur - 29) / 100;
-        best_pass = (cur > best) ? pass : best_pass;
-        best      = (cur > best) ? cur  : best;
+    long long S = rub * 100 + kop;
+    long long maxS = S;
+    int bestPasses = 0, passes = 0;
+
+    while (passes < 100) {
+        passes++;
+        long long newS = S * 100 + 29;
+        if (newS > maxS) {
+            maxS = newS;
+            bestPasses = passes;
+            S = newS;
+        } else {
+            break;
+        }
     }
 
-    printf("%d %d %d\n", best_pass, best / 100, best % 100);
-    
-
+    printf("%d\n%lld %lld\n", bestPasses, maxS / 100, maxS % 100);
+    return 0;
+}
     return 0;
 }
