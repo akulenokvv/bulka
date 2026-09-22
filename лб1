@@ -42,9 +42,10 @@ int main() {
     //ЗАДАНИЕ 4
     double a, b;
     std::scanf("%lf %lf", &a, &b);
-    double y = std::sqrt((a * std::sin(b) * std::sin(b) + std::pow(std::cos(b), 3.0) + std::cbrt(b * b)) /
-                         (4.0 * a * std::tan(b) * (1.0 - std::exp(std::sqrt(a)))));
-    
+    double y = std::sqrt(
+        (a * std::sin(b) * std::sin(b) + std::cos(b * b * b) + std::cbrt(b * b)) /
+        std::sqrt(std::sqrt(std::fabs(a * std::tan(b) / (1.0 - std::exp(std::sqrt(a))))))
+    );
     std::printf("y = %f\n", y);
     std::printf("\n");
 
