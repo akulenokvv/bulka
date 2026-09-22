@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iomanip>
 #include <cstdio>
+#include <stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
 
@@ -57,11 +58,8 @@ int main() {
     printf("%.1f\n", (a > 180.0) ? 360.0 - a : a);
 
     //ЗАДАНИЕ 6
-    #include <stdio.h>
-
-int main() {
     long long rub, kop;
-    scanf("%lld %lld", &rub, &kop);
+    scanf_s("%lld %lld", &rub, &kop);
 
     long long S = rub * 100 + kop;
     long long maxS = S;
@@ -80,7 +78,6 @@ int main() {
     }
 
     printf("%d\n%lld %lld\n", bestPasses, maxS / 100, maxS % 100);
-    return 0;
-}
+
     return 0;
 }
