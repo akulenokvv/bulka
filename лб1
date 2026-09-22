@@ -53,10 +53,10 @@ int main() {
     int h, m;
     scanf_s("%d:%d", &h, &m);
     double a = fabs((h * 30.0 + m * 0.5) - (m * 6.0));
-    if (a > 180.0) a = 360.0 - a;
-    printf("%.1f\n", a);
+    
+    printf("%.1f\n", (a > 180.0) ? 360.0 - a : a);
 
-//ЗАДАНИЕ 6
+    //ЗАДАНИЕ 6
     int rub, kop;
     scanf_s("%d %d", &rub, &kop);
 
@@ -71,7 +71,6 @@ int main() {
 
     printf("%d %d %d\n", best_pass, best / 100, best % 100);
     
-
 
     return 0;
 }
