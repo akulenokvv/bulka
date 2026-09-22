@@ -41,7 +41,7 @@ int main() {
 
     //ЗАДАНИЕ 4
     double a, b;
-    std::scanf("%lf %lf", &a, &b);
+    scanf_s("%lf %lf", &a, &b);
     double y = std::sqrt(
         (a * std::sin(b) * std::sin(b) + std::cos(b * b * b) + std::cbrt(b * b)) /
         std::sqrt(std::sqrt(std::fabs(a * std::tan(b) / (1.0 - std::exp(std::sqrt(a))))))
