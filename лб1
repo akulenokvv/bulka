@@ -43,10 +43,9 @@ int main() {
     double a, b;
     std::printf("a, b = ");
     std::scanf("%lf %lf", &a, &b);
-
-    double y = sqrt((a * sin(b) * sin(b) + pow(cos(b), 3) + cbrt(b * b)) /
-                    (4 * a * tan(b) * (1 - exp(sqrt(a)))));
-
+double y = std::sqrt((a * std::sin(b) * std::sin(b) + std::pow(std::cos(b), 3.0) + std::cbrt(b * b)) /
+                         (4.0 * a * std::tan(b) * (1.0 - std::exp(std::sqrt(a)))));
+    
     std::printf("y = %f\n", y);
     std::printf("\n");
 
