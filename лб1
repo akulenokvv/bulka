@@ -58,12 +58,8 @@ int main() {
     printf("%.1f\n", (a > 180.0) ? 360.0 - a : a);
 
     //ЗАДАНИЕ 6
-    #include <stdio.h>
-
-int main() {
     int rub, kop;
-    printf("Введите начальную сумму (рубли копейки): ");
-    scanf("%d %d", &rub, &kop);
+    scanf_s("%d %d", &rub, &kop);
 
     long long S = rub * 100LL + kop;
     long long maxS = S;
@@ -83,10 +79,8 @@ int main() {
         }
     }
 
-    printf("Оптимальное число проходов: %d\n", bestPasses);
-    printf("Наибольшая конечная сумма: %lld руб. %lld коп.\n", maxS / 100, maxS % 100);
+    printf("%d\n", bestPasses);
+    printf("%lld %lld\n", maxS / 100, maxS % 100);
 
-    return 0;
-}
     return 0;
 }
