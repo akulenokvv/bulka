@@ -40,13 +40,20 @@ int main() {
     std::printf("\n");
 
     //ЗАДАНИЕ 4
-        double a, b, y;
-        scanf_s("%lf %lf", &a, &b);
-    
-        y = sqrt( ( fabs(a * pow(sin(b), 2) + cos(pow(b, 3))) + pow(pow(b, 2), 1.0/3.0) ) / 
-                  pow( fabs(a * tan(b) / (1 - exp(sqrt(a)))), 0.25 ) );
-        
-        printf("y = %.3f\n", y);
+        #include <stdio.h>
+#include <math.h>
+
+int main() {
+    double a, b;
+    printf("a b: ");
+    scanf("%lf %lf", &a, &b);
+
+    double y = sqrt(fabs((fabs(a*sin(b)*sin(b) + cos(b*b*b)) + pow(b*b, 1.0/3.0)) / 
+                         pow(fabs(a*tan(b) / (1 - exp(sqrt(a)))), 0.25)));
+
+    printf("y = %.3f\n", y);
+    return 0;
+}
 
     //ЗАДАНИЕ 5
     int h, m;
