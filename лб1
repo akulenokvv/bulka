@@ -40,14 +40,23 @@ int main() {
     std::printf("\n");
 
     //ЗАДАНИЕ 4
-    double a, b;
-    scanf_s("%lf %lf", &a, &b);
-    double y = std::sqrt(
-        (a * std::sin(b) * std::sin(b) + std::cos(b * b * b) + std::cbrt(b * b)) /
-        std::sqrt(std::sqrt(std::fabs(a * std::tan(b) / (1.0 - std::exp(std::sqrt(a))))))
-    );
-    std::printf("y = %f\n", y);
-    std::printf("\n");
+    #include <stdio.h>
+#include <math.h>
+
+int main() {
+    double a, b, y;
+    
+    printf("Введите a и b: ");
+    scanf("%lf %lf", &a, &b);
+    
+    // Одна большая формула
+    y = sqrt( ( fabs(a * pow(sin(b), 2) + cos(pow(b, 3))) + pow(pow(b, 2), 1.0/3.0) ) / 
+              pow( fabs(a * tan(b) / (1 - exp(sqrt(a)))), 0.25 ) );
+    
+    printf("y = %.3f\n", y);
+    
+    return 0;
+}
 
     //ЗАДАНИЕ 5
     int h, m;
