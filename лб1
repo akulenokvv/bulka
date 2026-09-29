@@ -40,15 +40,17 @@ int main() {
     std::printf("\n");
 
     //ЗАДАНИЕ 4
-        double a, b, y;
-        scanf_s("%lf %lf", &a, &b);
-        // Числитель
-        double ch = fabs(a*sin(b)*sin(b) + cos(b*b*b)) + pow(b*b, 1.0/3.0);
-        // Знаменатель
-        double z = pow(fabs(a*tan(b) / (1 - exp(sqrt(a)))), 0.25);
         
-        y = sqrt(fabs(ch / z));
-        printf("y = %.3f\n", y);
+#include <iostream>
+#include <cmath>
+
+int main() {
+    double a = 0.5, b = 0.5;
+    double y = sqrt(fabs((pow(a, pow(sin(b), 2) + cos(pow(b, 3))) + cbrt(pow(b, 2))) / pow(fabs((a * tan(b)) / (1 - exp(sqrt(a)))), 0.25)));
+    std::cout.precision(3);
+    std::cout << std::fixed << y;
+    return 0;
+}
 
     //ЗАДАНИЕ 5
     int h, m;
