@@ -40,13 +40,26 @@ int main() {
     std::printf("\n");
 
     //ЗАДАНИЕ 4
-        double a, b;
-        scanf_s("%lf %lf", &a, &b);
+        #include <stdio.h>
+#include <math.h>
+
+int main() {
+    double a, b, y;
+    printf("a b: ");
+    scanf("%lf %lf", &a, &b);
     
-        double y = sqrt(fabs((fabs(a*sin(b)*sin(b) + cos(b*b*b)) + pow(b*b, 1.0/3.0)) / 
-                             pow(fabs(a*tan(b) / (1 - exp(sqrt(a)))), 0.25)));
+    // Числитель
+    double num = fabs(a*sin(b)*sin(b) + cos(b*b*b)) + pow(b*b, 1.0/3.0);
     
-        printf("y = %.3f\n", y);
+    // Знаменатель (корень 4-й степени из модуля дроби)
+    double den = pow(fabs(a*tan(b) / (1 - exp(sqrt(a)))), 0.25);
+    
+    // Итог
+    y = sqrt(fabs(num / den));
+    
+    printf("y = %.3f\n", y);
+    return 0;
+}
 
     //ЗАДАНИЕ 5
     int h, m;
