@@ -73,3 +73,55 @@ int main() {
 
     return 0;
 }
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cmath>
+#include <cstdio>
+#include <algorithm> // для функции min
+using namespace std;
+
+int main()
+{
+    long long N;
+    scanf_s("%lld", &N);
+
+    long long best_P = 1, best_Q = 1;
+    long long min_diff = N; 
+
+    for (long long P = 1; P * P <= N; P++)
+    {
+        long long rem = N - P * P; 
+        long long Q_floor = (long long)sqrt(rem); 
+        long long Q_ceil = Q_floor + 1;           
+
+        // Массив кандидатов
+        long long candidates[2] = { Q_floor, Q_ceil };
+        
+        // Проходим по обоим кандидатам
+        for (int k = 0; k < 2; k++)
+        {
+            long long Q = candidates[k];
+            
+            // Проверяем, что Q >= 1. Если нет, пропускаем итерацию.
+            // Вместо if используем короткое замыкание: (Q >= 1) && (...)
+            // Если Q < 1, вторая часть не выполнится
+            (Q >= 1) && ([&]() {
+                long long diff = llabs(N - P * P - Q * Q);
+
+                // Если разница меньше ИЛИ (разница равна И Q меньше)
+                // Используем тернарный оператор для обновления
+                bool is_better = (diff < min_diff) || (diff == min_diff && Q < best_Q);
+                
+                // Если is_better истина, обновляем значения
+                best_P = is_better ? P : best_P;
+                best_Q = is_better ? Q : best_Q;
+                min_diff = is_better ? diff : min_diff;
+            }());
+        }
+    }
+
+    printf("%lld %lld\n", best_P, best_Q);
+
+    return 0;
+}
