@@ -53,29 +53,22 @@ int main() {
     printf("%.1f\n", (a > 180.0) ? 360.0 - a : a);
 
     //ЗАДАНИЕ 6
-    int rub, kop;
-    scanf_s("%d %d", &rub, &kop);
-
-    long long S = rub * 100LL + kop;
-    long long maxS = S;
-    int bestPasses = 0;
-    int passes = 0;
-    int maxPasses = 100;
-
-    while (passes < maxPasses) {
-        passes++;
-        S = S * 100 + 29;
-
-        if (S > maxS) {
-            maxS = S;
-            bestPasses = passes;
-        } else {
-            break;
-        }
-    }
-
-    printf("%d\n", bestPasses);
-    printf("%lld %lld\n", maxS / 100, maxS % 100);
+    long long s;
+    scanf_s("%lld", &s);
+    long long max_s = s; // маскимальная сумма
+    int best_s = 0; //лучший шаг
+    int i = 0; //счетчик шпгов
+    
+    do
+    {
+        i++;
+        long long t = s - 29;
+        s = (t % 100) * 100 + t / 100;
+        best_s = (s > max_s) ? s : best_s;
+        max_s = (s > max_s) ? s : max_s;
+    } while (i < 10000 && s >= 29);
+    
+    printf("%d\n", best_s);
 
     return 0;
 }
