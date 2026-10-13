@@ -74,3 +74,48 @@ int main() {
     return 0;
 }
 
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cmath>
+#include <cstdio>
+using namespace std;
+
+int main()
+{
+    long long N;
+    scanf_s("%lld", &N);
+
+    long long best_P = 1;
+    long long best_Q = 1;
+    long long min_diff = N;
+
+    for (long long P = 1; P * P <= N; P++)
+    {
+        long long rem = N - P * P;
+        long long Q_base = (long long)sqrt(rem);
+
+        for (int k = 0; k < 2; k++)
+        {
+            long long Q = Q_base + k;
+            
+            // Проверяем: Q >= 1 И P <= Q
+            // Если условие ложно, пропускаем итерацию
+            (Q >= 1 && P <= Q) && ([&]() {
+                long long diff = N - P * P - Q * Q;
+                diff = (diff < 0) ? -diff : diff; // Модуль
+
+                // Определяем, лучше ли текущий вариант
+                bool better = (diff < min_diff) || (diff == min_diff && Q < best_Q);
+                
+                // Обновляем значения
+                best_P = better ? P : best_P;
+                best_Q = better ? Q : best_Q;
+                min_diff = better ? diff : min_diff;
+            }());
+        }
+    }
+
+    printf("%lld %lld\n", best_P, best_Q);
+
+    return 0;
+}
