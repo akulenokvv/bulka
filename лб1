@@ -55,6 +55,7 @@ int main() {
     //ЗАДАНИЕ 6
     long long s;
     scanf_s("%lld", &s);
+    long long start_s = s; // начальная сумма
     long long max_s = s; // маскимальная сумма
     int best_s = 0; //лучший шаг
     int i = 0; //счетчик шпгов
@@ -66,7 +67,7 @@ int main() {
         s = (t % 100) * 100 + t / 100;
         best_s = (s > max_s) ? i : best_s;
         max_s = (s > max_s) ? s : max_s;
-    } while (i < 10000 && s >= 29);
+    } while (s >= 29 && s != start_s);
     
     printf("%d\n", best_s);
 
