@@ -74,3 +74,50 @@ int main() {
     return 0;
 }
 
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cmath>
+#include <cstdio>
+using namespace std;
+
+int main()
+{
+    long long N;
+    scanf_s("%lld", &N);
+
+    long long best_P = 1;
+    long long best_Q = 1;
+    long long min_diff = N; // Начальная максимальная разница
+
+    // Перебираем P от 1 до корня из N
+    for (long long P = 1; P * P <= N; P++)
+    {
+        long long rem = N - P * P;      // Остаток для Q
+        long long Q = (long long)sqrt(rem); // Берем целую часть корня
+
+        // Проверяем два варианта: Q и Q+1 (округление вниз и вверх)
+        for (int k = 0; k < 2; k++)
+        {
+            long long cur_Q = Q + k;
+            
+            if (cur_Q < 1) continue; // Q должно быть >= 1
+
+            // Вычисляем модуль разности
+            long long diff = N - P * P - cur_Q * cur_Q;
+            if (diff < 0) diff = -diff; // Модуль числа
+
+            // Если нашли лучший вариант (или такой же, но Q меньше)
+            if (diff < min_diff || (diff == min_diff && cur_Q < best_Q))
+            {
+                min_diff = diff;
+                best_P = P;
+                best_Q = cur_Q;
+            }
+        }
+    }
+
+    // Вывод результата
+    printf("%lld %lld\n", best_P, best_Q);
+
+    return 0;
+}
