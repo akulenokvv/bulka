@@ -64,7 +64,7 @@ int main() {
         i++;
         long long t = s - 29;
         s = (t % 100) * 100 + t / 100;
-        best_s = (s > max_s) ? s : best_s;
+        best_s = (s > max_s) ? i : best_s;
         max_s = (s > max_s) ? s : max_s;
     } while (i < 10000 && s >= 29);
     
