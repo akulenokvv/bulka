@@ -82,7 +82,7 @@ int main() {
     //перебор Pот 0 до корня из N
     for (P = 0; P * P <= N; P++)
     {
-        ling long Q = 0;
+        long long Q = 0;
         while ((Q + 1) * (Q + 1) <= N - P * P)
         {
             Q = Q + 1;
