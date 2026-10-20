@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main()
+{
+    //задание 7
+    int n;
+    double r;
+
+    do
+    {
+        printf("Enter the number of threes (n): ");
+        scanf_s("%d", &n);
+        if (n <= 0)
+        {
+            printf("An incorrect number has been entered, please try agaain.\n");
+        }
+    } while (n <= 0);
+    do
+    {
+        printf("Enter the radius of the circle (r): ");
+        scanf_s("%lf", &r);
+        if (r <= 0)
+        {
+            printf("An incorrect number has been entered, please try agaain.\n");
+        }
+    } while (r <= 0);
+
+    int k1 = 0, k2 = 0, k3 = 0, k4 = 0;
+    double x, y;
+    for (int i = 1; i <= n; ++i)
+    {
+        printf("Enter the x and y coordinates: ");
+        scanf_s("%lf %lf", &x, &y);
+        if (x * x + y * y <= r * r)
+        {
+            if (x > 0 && y > 0)
+            {
+                k1++;
+            }
+            else if (x > 0 && y < 0)
+            {
+                k2++;
+            }
+            else if (x < 0 && y < 0)
+            {
+                k3++;
+            }
+            else if (x < 0 && y > 0)
+            {
+                k4++;
+            }
+        }
+    }
+    printf("1: %d\n", k1);
+    printf("2: %d\n", k2);
+    printf("3: %d\n", k3);
+    printf("4: %d\n", k4);
+    return 0;
+}
