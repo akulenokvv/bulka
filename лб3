@@ -57,5 +57,8 @@ int main()
     printf("2: %d\n", k2);
     printf("3: %d\n", k3);
     printf("4: %d\n", k4);
+
+    //задание 19
+    
     return 0;
 }
