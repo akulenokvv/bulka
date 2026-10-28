@@ -59,6 +59,66 @@ int main()
     printf("4: %d\n", k4);
 
     //задание 19
-    
+    #include <iostream>
+#include <cstdio>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n;
+    double d1, d2;
+
+    do
+    {
+        printf("Enter the number of vertices (n): ");
+        scanf_s("%d", &n);
+        if (n < 3)
+        {
+            printf("A polygon must have at least 3 vertices. Try agaain.\n");
+        }
+    } while (n <= 0);
+    do
+    {
+        printf("Enter d1 and d2: ");
+        scanf_s("%lf %lf", &d1, &d2);
+        if (d1 > d2)
+        {
+            printf("d1 must be less than or equal to d2. Try agaain.\n");
+        }
+    } while (d1 > d2);
+
+    double x, y;
+    double prev_x, prev_y; // координаты предыдущей вершины
+    double first_x, first_y; // координаты самой первой вершины
+    printf("Enter coordinates of vertex 1: ");
+    scanf_s("%lf %lf", &first_x, &first_y);
+    prev_x = first_x;
+    prev_y = first_y;
+    int k = 0; // счетчик ребер, попадающих в диапазон
+
+    for (int i = 2; i <= n; ++i)
+    {
+        printf("Enter coordinates of vertex %d: ", i);
+        scanf_s("%lf %lf", &x, &y);
+        // длина текущего ребра
+        double len = sqrt(pow(x - prev_x, 2) + pow(y - prev_y, 2));
+        if (len >= d1 && len <= d2)
+        {
+            k++;
+        }
+        prev_x = x;
+        prev_y = y;
+    }
+    // длина замыкающего ребра
+    double closing_len = sqrt(pow(first_x - prev_x, 2) + pow(first_y - prev_y, 2));
+    if (closing_len >= d1 && closing_len <= d2)
+    {
+        k++;
+    }
+    printf("%d\n", k);
+
+    return 0;
+}
     return 0;
 }
