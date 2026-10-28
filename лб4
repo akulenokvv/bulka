@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    // Задание 7
+    double S;
+    do 
+    {
+        printf("Enter S (S > 1): ");
+        scanf("%lf", &S);
+        if (S <= 1.0) 
+        {
+            printf("Error: S must be greater than 1. Try again.\n\n");
+        }
+    } while (S <= 1.0);
+
+    double sum = 0.0;
+    int n = 0;
+
+    // Цикл while
+    while (sum <= S) 
+    {
+        n++;
+        sum += (2.0 * n - 1) / n;
+    }
+    printf("Using while: %d\n", n);
+    // Цикл do-while
+    do 
+    {
+        n++;
+        sum += (2.0 * n - 1) / n;
+    } while (sum <= S);
+    printf("Using do-while: %d\n", n);
+    // Цикл for
+    for (; sum <= S; ) 
+    {
+        n++;
+        sum += (2.0 * n - 1) / n;
+    }
+    printf("Using for: %d\n", n);
+
+    return 0;
+}
