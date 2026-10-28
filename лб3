@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <cmath>
 using namespace std;
 
 int main()
@@ -59,13 +60,6 @@ int main()
     printf("4: %d\n", k4);
 
     //задание 19
-    #include <iostream>
-#include <cstdio>
-#include <cmath>
-using namespace std;
-
-int main()
-{
     int n;
     double d1, d2;
 
@@ -118,7 +112,5 @@ int main()
     }
     printf("%d\n", k);
 
-    return 0;
-}
     return 0;
 }
