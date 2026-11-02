@@ -9,7 +9,7 @@ int main()
     do 
     {
         printf("Enter S (S > 1): ");
-        scanf("%lf", &S);
+        scarf_s("%lf", &S);
         if (S <= 1.0) 
         {
             printf("S must be greater than 1. Try again.\n");
