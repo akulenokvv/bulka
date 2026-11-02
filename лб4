@@ -12,7 +12,7 @@ int main()
         scanf("%lf", &S);
         if (S <= 1.0) 
         {
-            printf("S must be greater than 1. Try again.\n\n");
+            printf("S must be greater than 1. Try again.\n");
         }
     } while (S <= 1.0);
 
