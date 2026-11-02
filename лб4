@@ -27,6 +27,8 @@ int main()
     }
     printf("Using while: %d\n", n);
     // Цикл do-while
+    sum = 0.0;
+    n = 0;
     do 
     {
         n++;
@@ -34,6 +36,8 @@ int main()
     } while (sum <= S);
     printf("Using do-while: %d\n", n);
     // Цикл for
+    sum = 0.0;
+    n = 0;
     for (; sum <= S; ) 
     {
         n++;
