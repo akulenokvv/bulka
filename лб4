@@ -45,5 +45,28 @@ int main()
     }
     printf("Using for: %d\n", n);
 
+    // задание 19
+    long long k;
+    double limit = pow(10, 9);
+    do {
+        printf("Enter k: ");
+        scanf_s("%lld", &k);
+        if (k <= 0 || k > limit) {
+            printf("k must be a poditive integer and not exceed 10^9. Try again.\n");
+        }
+    } while (k <= 0 || k > limit);
+    int c[10] = { 0 };
+    while (k > 0) {
+        int d = k % 10;
+        c[d]++;
+        k = k / 10;
+    }
+    for (int i = 9; i >= 0; i--) {
+        for (int j = 0; j < c[i]; j++) {
+            printf("%d", i);
+        }
+    }
+    printf("\n");
+
     return 0;
 }
