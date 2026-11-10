@@ -1,0 +1,52 @@
+#include <cstdlib>
+#include <ctime>
+#include <cstdio>
+#include <algorithm>
+
+int main()
+{
+    //задание 7
+    srand(time(0));
+    int n;
+    do {
+        printf("Enter the number of elements n: ");
+        scanf_s("%d", &n);
+        if (n <= 0) {
+            printf("n must be greater than 0. Try again.\n");
+        }
+    } while (n <= 0);
+    double* arr = new double[n]; //массив для всех чисел
+    int neg_count = 0;
+
+    printf("\nInitial array: ");
+    for (int i = 0; i < n; i++) {
+        arr[i] = -5.0 + (rand() / (RAND_MAX + 1.0)) * 10.0;
+        printf("%.2f ", arr[i]);
+        if (arr[i] < 0) {
+            neg_count++;
+        }
+    }
+    printf("\n");
+    if (neg_count == 0) {
+        printf("There are no negative elements.\n");
+        delete[] arr;
+        return 0;
+    } 
+    double* neg_arr = new double[neg_count]; //массив для отрицательных чисел
+    int j = 0;
+    for (int i = 0; i < n;i++) {
+        if (arr[i] < 0) {
+            neg_arr[j] = arr[i];
+            j++;
+        }
+    }
+    std::sort(neg_arr, neg_arr + neg_count);
+    printf("Result: ");
+    for (int i = 0; i < neg_count; i++) {
+        printf("%.2f ", neg_arr[i]);
+    }
+    printf("\n");
+    delete[] arr;
+    delete[] neg_arr;
+    return 0;
+}
