@@ -9,7 +9,7 @@ int main()
     int n;
     const int max = 100;
     double arr[max]; //массив для всех чисел
-    double* neg_arr[max]; //массив для отрицательных чисел
+    double neg_arr[max]; //массив для отрицательных чисел
     do {
         printf("Enter the number of elements n: ");
         scanf_s("%d", &n);
