@@ -48,7 +48,5 @@ int main()
         printf("%.2f ", neg_arr[i]);
     }
     printf("\n");
-    delete[] arr;
-    delete[] neg_arr;
     return 0;
 }
