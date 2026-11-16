@@ -22,7 +22,7 @@ int main()
 
     printf("\nInitial array: ");
     for (int i = 0; i < n; i++) {
-        arr[i] = -5.0 + (rand() / (RAND_MAX + 1.0)) * 10.0; //дифпозон от -5 до 5
+        arr[i] = -5.0 + (rand() / (RAND_MAX + 1.0)) * 10.0; //диапазон от -5 до 5
         printf("%.2f ", arr[i]);
         if (arr[i] < 0) {
             neg_count++;
@@ -31,7 +31,6 @@ int main()
     printf("\n");
     if (neg_count == 0) {
         printf("There are no negative elements.\n");
-        delete[] arr;
         return 0;
     } 
     
