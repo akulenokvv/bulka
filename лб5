@@ -54,60 +54,49 @@ int main()
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
-#include <cmath> // Для функции fabs()
+#include <cmath> 
 
 int main() {
     srand(time(0));
-
-    const int MAX_SIZE = 100; // Максимальный размер массива
-    double arr[MAX_SIZE];     // Обычный массив для чисел
-
+    const int max = 100; 
+    double arr[max];
     int n;
-    
-    // Проверка ввода N (чтобы не выйти за пределы массива)
     do {
-        printf("Введите количество элементов N (от 1 до %d): ", MAX_SIZE);
+        printf("Enter the number of elements n: ");
         scanf("%d", &n);
-        if (n <= 0 || n > MAX_SIZE) {
-            printf("Ошибка: N должно быть от 1 до %d. Попробуйте ещё раз.\n", MAX_SIZE);
+        if (n <= 0 || n > max) {
+            printf("n should be from 1 to %d. Try again.\n", max);
         }
-    } while (n <= 0 || n > MAX_SIZE);
+    } while (n <= 0 || n > max);
 
-    printf("\nСгенерированный массив:\n");
+    printf("\nInitial array: ");
     for (int i = 0; i < n; i++) {
-        // Генерация случайного числа от 2 до 10
-        arr[i] = 2.0 + (rand() / (RAND_MAX + 1.0)) * 8.0;
+        arr[i] = 2.0 + (rand() / (RAND_MAX + 1.0)) * 8.0; // Генерация случайного числа от 2 до 10
         printf("%.4f ", arr[i]);
     }
     printf("\n");
 
-    // Переменные для хранения лучшего результата
-    double best_number = arr[0]; // Число, которое ближе всего к целому
-    double min_distance = 1.0;   // Минимальное расстояние (начинаем с 1.0)
+    double best_number = arr[0];
+    double min_distance = 1.0;   
 
     for (int i = 0; i < n; i++) {
-        // Находим дробную часть числа (например, для 4.75 это 0.75)
         double fractional_part = fabs(arr[i] - (int)arr[i]);
         
         double current_distance;
         
-        // Если дробная часть больше 0.5, число ближе к следующему целому
         if (fractional_part > 0.5) {
             current_distance = 1.0 - fractional_part;
         } else {
-            // Иначе число ближе к текущему целому
             current_distance = fractional_part;
         }
-
-        // Если нашли число, которое ближе к целому, чем предыдущие
         if (current_distance < min_distance) {
             min_distance = current_distance;
             best_number = arr[i];
         }
     }
 
-    printf("\nЧисло, которое лежит ближе всего к целому: %.4f\n", best_number);
-    printf("Расстояние до ближайшего целого: %.4f\n", min_distance);
+    printf("\nThe number that lies closest to an integer: %.4f\n", best_number); //Число, которое лежит ближе всего к целому
+    printf("Distance to the nearest integer: %.4f\n", min_distance); //Расстояние до ближайшего целого
 
     return 0;
 }
