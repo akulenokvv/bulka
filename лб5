@@ -16,7 +16,7 @@ int main()
         if (n <= 0 || n > max) {
             printf("n should be from 1 to %d. Try again.\n", max);
         }
-    } while (n <= 0);
+    } while (n <= 0 || n > max);
     
     int neg_count = 0;
 
