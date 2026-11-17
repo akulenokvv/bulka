@@ -104,8 +104,8 @@ int main() {
         }
     }
 
-    printf("\nThe number that lies closest to an integer: %.4f\n", best_number); //Число, которое лежит ближе всего к целому
-    printf("Distance to the nearest integer: %.4f\n", min_distance); //Расстояние до ближайшего целого
+    printf("\nThe number that lies closest to an integer: %.4f", best_number); //Число, которое лежит ближе всего к целому
+    printf("Distance to the nearest integer: %.4f", min_distance); //Расстояние до ближайшего целого
 
     return 0;
 }
