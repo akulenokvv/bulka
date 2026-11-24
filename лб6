@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <ctime>
 
 // Задание 7
 double sred_znach(double months[12]) {
@@ -9,20 +10,26 @@ double sred_znach(double months[12]) {
     }
     return sum / 12.0;
 }
-
+double random_temp(double min, double max) {
+    return min + (rand() / (RAND_MAX + 1.0)) * (max - min);
+}
 int main() {
+    srand(time(0));
     const char* islands[4] = { "Kuba", "Trinidad", "Yamaika", "Gaiti" };
-    double temp[4][12] = {
-        //куба
-        {25.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 30.0, 29.0, 28.0, 27.0, 26.0},
-        //тринидад
-        {26.0, 26.0, 27.0, 28.0, 28.0, 27.0, 27.0, 27.0, 28.0, 28.0, 27.0, 26.0},
-        //ямайка
-        {24.0, 24.0, 25.0, 26.0, 27.0, 28.0, 28.0, 28.0, 27.0, 27.0, 26.0, 26.0},
-        //гаити
-        {32.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 28.0, 27.0, 26.0, 25.0, 24.0}
-    };
-    double max_temp = -100;
+    double min_t[4] = { 24.0, 25.0, 23.0, 22.0 };
+    double max_t[4] = { 31.0, 30.0, 29.0, 28.0 };
+    double temp[4][12];
+    printf("Sgenerirovannie srednemesyachnie temperaturi\n");
+    //генирация температур
+    for (int i = 0; i < 4; i++) {
+        printf("%-10s | ", islands[i]);
+        for (int j = 0; j < 12; j++) {
+            temp[i][j] = random_temp(min_t[i], max_t[i]);
+            printf("%5.1f ", temp[i][j]);
+        }
+        printf("\n");
+    }
+    double max_temp = -100.0;
     int best_island = 0;
     printf("Srednegodovaya temperatura po ostrovam:\n");
     for (int i = 0; i < 4; i++) {
