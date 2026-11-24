@@ -2,21 +2,37 @@
 #include <cstdlib>
 
 // Задание 7
-    double sred_znach(double months[12]) {
-        double sum = 0.0;
-        for (int i = 0; i < 12; i++) {
-            sum += months[i];
-        }
-        return sum / 12.0;
+double sred_znach(double months[12]) {
+    double sum = 0.0;
+    for (int i = 0; i < 12; i++) {
+        sum += months[i];
     }
+    return sum / 12.0;
+}
 
 int main() {
-    const char* islands[4] = { "Куба", "Тринидад", "Ямайка", "Гаити" };
+    const char* islands[4] = { "Kuba", "Trinidad", "Yamaika", "Gaiti" };
     double temp[4][12] = {
+        //куба
         {25.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 30.0, 29.0, 28.0, 27.0, 26.0},
+        //тринидад
         {26.0, 26.0, 27.0, 28.0, 28.0, 27.0, 27.0, 27.0, 28.0, 28.0, 27.0, 26.0},
+        //ямайка
         {24.0, 24.0, 25.0, 26.0, 27.0, 28.0, 28.0, 28.0, 27.0, 27.0, 26.0, 26.0},
-
+        //гаити
+        {32.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 28.0, 27.0, 26.0, 25.0, 24.0}
+    };
+    double max_temp = -100;
+    int best_island = 0;
+    printf("Srednegodovaya temperatura po ostrovam:\n");
+    for (int i = 0; i < 4; i++) {
+        double sred_temp = sred_znach(temp[i]);
+        printf("%-10s : %.2f \n", islands[i], sred_temp);
+        if (sred_temp > max_temp) {
+            max_temp = sred_temp;
+            best_island = i;
+        }
     }
+    printf("Maximalnaya srednegodovaya temperatura na ostrove: %s (%.2f)\n", islands[best_island], max_temp);
     return 0;
 }
