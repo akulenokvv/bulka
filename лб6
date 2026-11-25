@@ -44,39 +44,29 @@ int main() {
     return 0;
 }
 
+// Задача 19
 #include <cstdio>
 
 int main() {
-    const int RESORTS = 5;   // Пять морских курортов
-    const int MAX_N = 100;   // Максимально допустимое количество лет
+    const int k = 5;   // морские курорты
+    const int max_n = 100; 
     int n;
-
-    // 1. Ввод и проверка N в одном цикле
     do {
-        printf("Введите количество лет наблюдений (от 1 до %d): ", MAX_N);
-        scanf("%d", &n);
-        
-        // Объединенное условие: если меньше 1 ИЛИ больше максимума
-        if (n < 1 || n > MAX_N) {
-            printf("Ошибка: N должно быть в диапазоне от 1 до %d. Попробуйте еще раз.\n\n", MAX_N);
+        printf("Vvedite kolichestvo let nabludeniy : ");
+        scanf_s("%d", &n);
+        if (n < 1 || n > max_n {
+            printf("n doljno bit v diapazone ot 1 do %d. Poprobuyte eshe raz.\n", max_n);
         }
-    } while (n < 1 || n > MAX_N); // Цикл повторяется, пока условие неверное
+    } while (n < 1 || n > max_n); 
 
-    // Массив для солнечных дней: 5 курортов, N лет
-    // Теперь мы гарантированно знаем, что n <= MAX_N, и массив не переполнится
-    int sunny_days[RESORTS][MAX_N];
-    
-    // Массив для расстояний до курортов
-    double distances[RESORTS];
+    int sunny_days[k][max_n];
+    double distances[k];
 
-    // 2. Ввод данных
-    printf("\nВведите данные по каждому курорту:\n");
-    for (int i = 0; i < RESORTS; i++) {
-        printf("\n--- Курорт №%d ---\n", i + 1);
-        
-        printf("Введите расстояние до курорта (км): ");
+    printf("\nVvedite dannie po kajdomu kurortu:\n");
+    for (int i = 0; i < k; i++) {
+        printf("\nKurort №%d\n", i + 1);
+        printf("Vvedite rasstoyanie do kurorta (km): ");
         scanf("%lf", &distances[i]);
-
         printf("Введите количество солнечных дней за каждый из %d лет через пробел:\n", n);
         for (int j = 0; j < n; j++) {
             scanf("%d", &sunny_days[i][j]);
